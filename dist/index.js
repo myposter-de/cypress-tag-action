@@ -46,9 +46,22 @@ function run() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             const tickets = core.getInput('tickets');
+            const branchInput = core.getInput('branch');
+            const getBranch = (branch) => {
+                let finalBranch = branch;
+                const branchSplitted = branch.split('/');
+                if (branchSplitted && branchSplitted.length > 0) {
+                    const poppedBranch = branchSplitted.pop();
+                    if (poppedBranch) {
+                        finalBranch = poppedBranch;
+                    }
+                }
+                return finalBranch;
+            };
+            const branchName = getBranch(branchInput);
             const { context } = github;
             const eventName = context.event_name;
-            const branchName = context.ref_name;
+            console.log('branchName', branchName);
             const finalTags = (0, determineTags_1.determineTags)({ branchName, eventName, tickets });
             core.setOutput('tags', finalTags);
         }
@@ -87,8 +100,7 @@ const determineTags = (props) => {
             }
         }
         if (props.tickets.length) {
-            const ticketsSeparated = props
-                .tickets
+            const ticketsSeparated = props.tickets
                 .split(',')
                 .map(ticket => ticket.trim());
             tags.push(...ticketsSeparated);
@@ -116,7 +128,6 @@ var Tags;
     Tags["schedule"] = "nightly";
     Tags["master"] = "prod regression";
 })(Tags = exports.Tags || (exports.Tags = {}));
-;
 
 
 /***/ }),

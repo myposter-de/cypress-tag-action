@@ -7,6 +7,9 @@ inputs:
     description: 'comma separated ticket list'
     required: false
     default: ''
+  branch:
+    description: 'branch name'
+    required: true
 
 outputs:
   tags:
