@@ -97,7 +97,7 @@ const determineTags = (props) => {
     catch (e) {
         console.log(e);
     }
-    return tags.join(' ');
+    return tags.join(',');
 };
 exports.determineTags = determineTags;
 

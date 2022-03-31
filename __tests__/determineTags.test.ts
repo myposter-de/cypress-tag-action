@@ -1,5 +1,5 @@
-import {expect, describe, test} from '@jest/globals';
-import { determineTags } from '../src/utils/determineTags';
+import {expect, describe, test} from '@jest/globals'
+import {determineTags} from '../src/utils/determineTags'
 
 const testCases = [
   [
@@ -16,7 +16,7 @@ const testCases = [
       eventName: 'schedule',
       branchName: 'feature/FESH-123'
     },
-    'schedule FESH-123'
+    'schedule,FESH-123'
   ],
   [
     {
@@ -40,13 +40,13 @@ const testCases = [
       eventName: 'schedule',
       branchName: 'feature/FESH-123'
     },
-    'schedule FESH-123 BESH-234'
+    'schedule,FESH-123,BESH-234'
   ]
-];
+]
 
 describe('should return correct tags', () => {
   test.each(testCases)('tags for %s', (testCase, res) => {
-  const result = determineTags(testCase);
-  expect(result).toEqual(res);
-  });
-});
+    const result = determineTags(testCase)
+    expect(result).toEqual(res)
+  })
+})
