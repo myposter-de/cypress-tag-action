@@ -1,5 +1,5 @@
-import {expect, describe, test} from '@jest/globals'
-import {determineTags} from '../src/utils/determineTags'
+import { expect, describe, test } from '@jest/globals';
+import { determineTags } from '../src/utils/determineTags';
 
 const testCases = [
   [
@@ -50,11 +50,11 @@ const testCases = [
     },
     ''
   ]
-]
+];
 
 describe('should return correct tags', () => {
   test.each(testCases)('tags for %s', (testCase, res) => {
-    const result = determineTags(testCase)
-    expect(result).toEqual(res)
-  })
-})
+    const result = determineTags(testCase);
+    expect(result).toEqual(res);
+  });
+});

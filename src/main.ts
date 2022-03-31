@@ -1,12 +1,12 @@
-import * as core from '@actions/core'
-const github = require('@actions/github')
+import * as core from '@actions/core';
+const github = require('@actions/github');
 
-import {determineTags} from './utils/determineTags'
+import { determineTags } from './utils/determineTags';
 
 async function run(): Promise<void> {
   try {
-    const tickets = core.getInput('tickets')
-    const branchInput: string = core.getInput('branch')
+    const tickets = core.getInput('tickets');
+    const branchInput: string = core.getInput('branch');
     const getBranch = (branch: string) => {
       let finalBranch = branch;
       const branchSplitted: Array<string> = branch.split('/');
@@ -18,21 +18,21 @@ async function run(): Promise<void> {
       }
 
       return finalBranch;
-    }
-    const branchName: string =getBranch(branchInput);
-    const {context} = github
-    const eventName: string = context.event_name
+    };
+    const branchName: string = getBranch(branchInput);
+    const { context } = github;
+    const eventName: string = context.event_name;
 
-    console.log('branchName', branchName)
+    console.log('branchName', branchName);
 
-    const finalTags = determineTags({branchName, eventName, tickets})
+    const finalTags = determineTags({ branchName, eventName, tickets });
 
-    core.setOutput('tags', finalTags)
+    core.setOutput('tags', finalTags);
   } catch (e) {
     if (e instanceof Error) {
-      core.setFailed(e.message)
+      core.setFailed(e.message);
     }
   }
 }
 
-run()
+run();
