@@ -1,0 +1,31 @@
+name: 'build-test'
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🛒 Checkout
+        uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.gh-pat }}
+
+      - name: 🤖 Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16.13
+          registry-url: 'https://npm.pkg.github.com'
+          cache: 'npm'
+          cache-dependency-path: '**/package.json'
+
+      - name: install
+        shell: bash
+        run: npm i
+
+      - name: 🧪 Unit Tests
+        shell: bash
+        run: npm run test
+

@@ -1,0 +1,17 @@
+name: 'Cypress tag action'
+description: 'determines tags to use for current run'
+author: 'myposter Martin Berchtold'
+
+inputs:
+  tickets:
+    description: 'comma separated ticket list'
+    required: false
+    default: ''
+
+outputs:
+  tags:
+    description: 'tag string'
+
+runs:
+  using: 'node16'
+  main: 'lib/main.js'
