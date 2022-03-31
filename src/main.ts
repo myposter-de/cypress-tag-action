@@ -10,6 +10,8 @@ async function run(): Promise<void> {
     const eventName: string = context.event_name
     const branchName: string = context.ref_name
 
+    console.log('branchName', branchName)
+
     const finalTags = determineTags({branchName, eventName, tickets})
 
     core.setOutput('tags', finalTags)
