@@ -11,7 +11,7 @@ jobs:
       - name: 🛒 Checkout
         uses: actions/checkout@v2
         with:
-          token: ${{ secrets.gh-pat }}
+          token: ${{ secrets.GH_PAT }}
 
       - name: 🤖 Setup Node
         uses: actions/setup-node@v2
