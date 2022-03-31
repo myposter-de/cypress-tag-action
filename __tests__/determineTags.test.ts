@@ -8,7 +8,7 @@ const testCases = [
       eventName: 'schedule',
       branchName: 'master'
     },
-    'master FESH-123'
+    'master,FESH-123'
   ],
   [
     {
@@ -41,6 +41,14 @@ const testCases = [
       branchName: 'feature/FESH-123'
     },
     'schedule,FESH-123,BESH-234'
+  ],
+  [
+    {
+      tickets: '',
+      eventName: '',
+      branchName: ''
+    },
+    ''
   ]
 ]
 
