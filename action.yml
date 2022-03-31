@@ -9,7 +9,8 @@ inputs:
     default: ''
   branch:
     description: 'branch name'
-    required: true
+    required: false
+    default: 'master'
 
 outputs:
   tags:
