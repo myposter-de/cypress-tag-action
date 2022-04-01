@@ -20,10 +20,10 @@ async function run(): Promise<void> {
       return finalBranch;
     };
     const branchName: string = getBranch(branchInput);
-    const { context } = github;
-    const eventName: string = context.event_name;
+    const { event_name } = github;
+    const eventName: string = event_name;
 
-    console.log('branchName', branchName);
+    console.log('branchName event_name', branchName, event_name);
 
     const finalTags = determineTags({ branchName, eventName, tickets });
 
