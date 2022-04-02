@@ -59,9 +59,9 @@ function run() {
                 return finalBranch;
             };
             const branchName = getBranch(branchInput);
-            const { event_name } = github;
-            const eventName = event_name;
-            console.log('branchName event_name', branchName, event_name);
+            const { context } = github;
+            const { eventName } = context;
+            console.log('branchName event_name', branchName, eventName);
             const finalTags = (0, determineTags_1.determineTags)({ branchName, eventName, tickets });
             core.setOutput('tags', finalTags);
         }
