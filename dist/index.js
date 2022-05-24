@@ -91,13 +91,11 @@ const determineTags = (props) => {
         const tagsValues = Object.keys(tags_1.Tags);
         const isMaster = tagsValues.indexOf(props.branchName);
         if (isMaster >= 0) {
-            tags.push(tagsValues[isMaster]);
+            tags.push(tags_1.Tags.master);
         }
-        else {
-            const isEvent = tagsValues.indexOf(props.eventName);
-            if (isEvent >= 0) {
-                tags.push(tagsValues[isEvent]);
-            }
+        const isEvent = tagsValues.indexOf(props.eventName);
+        if (isEvent >= 0) {
+            tags.push(tags_1.Tags.schedule);
         }
         if (props.tickets.length) {
             const ticketsSeparated = props.tickets

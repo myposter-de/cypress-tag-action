@@ -14,13 +14,13 @@ const determineTags = (props: DetermineTagsProps) => {
     const isMaster = tagsValues.indexOf(props.branchName);
 
     if (isMaster >= 0) {
-      tags.push(tagsValues.master);
+      tags.push(Tags.master);
     } 
 
     const isEvent = tagsValues.indexOf(props.eventName);
 
     if (isEvent >= 0) {
-      tags.push(tagsValues.schedule);
+      tags.push(Tags.schedule);
     }
 
     if (props.tickets.length) {

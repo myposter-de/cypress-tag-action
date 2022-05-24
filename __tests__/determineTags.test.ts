@@ -8,7 +8,7 @@ const testCases = [
       eventName: 'schedule',
       branchName: 'master'
     },
-    'master,FESH-123'
+    'prod regression,nightly,FESH-123'
   ],
   [
     {
@@ -16,7 +16,7 @@ const testCases = [
       eventName: 'schedule',
       branchName: 'feature/FESH-123'
     },
-    'schedule,FESH-123'
+    'nightly,FESH-123'
   ],
   [
     {
@@ -24,7 +24,7 @@ const testCases = [
       eventName: 'schedule',
       branchName: 'feature/FESH-123'
     },
-    'schedule'
+    'nightly'
   ],
   [
     {
@@ -32,7 +32,7 @@ const testCases = [
       eventName: 'pull_request',
       branchName: 'master'
     },
-    'master'
+    'prod regression'
   ],
   [
     {
@@ -40,7 +40,7 @@ const testCases = [
       eventName: 'schedule',
       branchName: 'feature/FESH-123'
     },
-    'schedule,FESH-123,BESH-234'
+    'nightly,FESH-123,BESH-234'
   ],
   [
     {
