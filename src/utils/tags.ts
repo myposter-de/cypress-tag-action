@@ -1,4 +1,5 @@
 export enum Tags {
   schedule = 'nightly',
-  master = 'prod regression'
+  master = 'prod regression',
+  deployment = 'deployment'
 }

@@ -4,6 +4,7 @@ export interface DetermineTagsProps {
   branchName: string;
   eventName: string;
   tickets: string;
+  triggeredBy: string;
 }
 
 const determineTags = (props: DetermineTagsProps) => {
@@ -15,7 +16,7 @@ const determineTags = (props: DetermineTagsProps) => {
 
     if (isMaster >= 0) {
       tags.push(Tags.master);
-    } 
+    }
 
     const isEvent = tagsValues.indexOf(props.eventName);
 
@@ -28,6 +29,10 @@ const determineTags = (props: DetermineTagsProps) => {
         .split(',')
         .map(ticket => ticket.trim());
       tags.push(...ticketsSeparated);
+    }
+
+    if (props.triggeredBy === Tags.deployment) {
+      tags.push(Tags.deployment);
     }
   } catch (e) {
     console.log(e);
