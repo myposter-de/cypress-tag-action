@@ -31,7 +31,7 @@ const determineTags = (props: DetermineTagsProps) => {
       tags.push(...ticketsSeparated);
     }
 
-    if (props.triggeredBy === 'deployment') {
+    if (props.triggeredBy === Tags.deployment) {
       tags.push(Tags.deployment);
     }
   } catch (e) {
