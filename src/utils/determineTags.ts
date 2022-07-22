@@ -4,7 +4,7 @@ export interface DetermineTagsProps {
   branchName: string;
   eventName: string;
   tickets: string;
-  isDeployment: boolean;
+  triggeredBy: string;
 }
 
 const determineTags = (props: DetermineTagsProps) => {
@@ -31,7 +31,7 @@ const determineTags = (props: DetermineTagsProps) => {
       tags.push(...ticketsSeparated);
     }
 
-    if (props.isDeployment) {
+    if (props.triggeredBy === 'deployment') {
       tags.push(Tags.deployment);
     }
   } catch (e) {

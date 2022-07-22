@@ -7,7 +7,7 @@ async function run(): Promise<void> {
   try {
     const tickets = core.getInput('tickets');
     const branchInput: string = core.getInput('branch');
-    const isDeployment: boolean = core.getInput('isDeployment') || false;
+    const triggeredBy: string = core.getInput('triggeredBy') || "";
 
     const getBranch = (branch: string) => {
       let finalBranch = branch;
@@ -27,7 +27,7 @@ async function run(): Promise<void> {
 
     console.log('branchName event_name', branchName, eventName);
 
-    const finalTags = determineTags({ branchName, eventName, isDeployment, tickets });
+    const finalTags = determineTags({ branchName, eventName, triggeredBy, tickets });
 
     core.setOutput('tags', finalTags);
   } catch (e) {
