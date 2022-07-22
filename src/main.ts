@@ -7,7 +7,7 @@ async function run(): Promise<void> {
   try {
     const tickets = core.getInput('tickets');
     const branchInput: string = core.getInput('branch');
-    const triggeredBy: string = core.getInput('triggeredBy') || "";
+    const triggeredBy: string = core.getInput('triggeredBy');
 
     const getBranch = (branch: string) => {
       let finalBranch = branch;

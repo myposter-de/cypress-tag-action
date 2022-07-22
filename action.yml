@@ -11,6 +11,10 @@ inputs:
     description: 'branch name'
     required: false
     default: 'master'
+  triggeredBy:
+    description: 'event that triggered workflow calling this action'
+    required: false
+    default: ''
 
 outputs:
   tags:
